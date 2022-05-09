@@ -5,7 +5,10 @@ npm-debug.log
 #Local folders
 files
 logos
-admin_files
+admin_photos
+user_photos
+piece_photos
+billet_images
 
 # Local development
 *.env

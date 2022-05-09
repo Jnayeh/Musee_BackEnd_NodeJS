@@ -9,7 +9,6 @@ const pieceSchema = new Schema({
   description: {
     type: String,
     required: true,
-    unique: true,
   },
   front_image: {
     type: String,
@@ -20,11 +19,6 @@ const pieceSchema = new Schema({
     required: false,
   },
   a_vendre: {
-    type: Boolean,
-    required: true,
-    default: false,
-  },
-  available: {
     type: Boolean,
     required: true,
     default: false,

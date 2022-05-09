@@ -9,7 +9,6 @@ const periodeSchema = new Schema({
   title: {
     type: String,
     required: true,
-    unique: true,
   },
   details: {
     type: String,
@@ -18,6 +17,10 @@ const periodeSchema = new Schema({
   date_creation: {
     type: Date,
     default: Date.now,
+  },
+  order: {
+    type: Number,
+    required: "true",
   },
   piece: {
     type: Boolean,

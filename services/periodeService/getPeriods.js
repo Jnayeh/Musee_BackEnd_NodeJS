@@ -2,6 +2,7 @@ const Periode = require("../../models/periodes");
 
 const getPeriodes = async (req, res, filter) => {
   Periode.find(filter)
+    .sort({ order: 1 })
     .then((result) => {
       res.send(result);
     })

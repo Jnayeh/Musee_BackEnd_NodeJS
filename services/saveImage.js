@@ -7,7 +7,7 @@ const saveImg = (req, _obj, photo_folder, image, old_img) => {
     let img = req.files[image];
     let date = new Date().getTime();
 
-    // REMOVE OLD IMAGE FROM
+    // REMOVE OLD IMAGE FROM BACKEND
     if (old_img) {
       deleteImg(photo_folder, old_img);
     }

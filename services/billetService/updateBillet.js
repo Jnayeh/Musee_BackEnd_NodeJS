@@ -3,7 +3,7 @@ const Periode = require("../../models/periodes.js");
 const saveImg = require("../saveImage");
 
 const updateBillet = async (req, res) => {
-  try {
+  if (req.body.billet) {
     const _id = req.params.id;
     const _billet = new Billet(JSON.parse(req.body.billet));
     const old_billet = await Billet.findById(_id);
@@ -52,9 +52,9 @@ const updateBillet = async (req, res) => {
           res.status(500).send({ error: "Server side error" });
         });
     } else {
-      res.send({ error: "billet NOT FOUND" });
+      res.status(404).send({ error: "BILLET NOT FOUND" });
     }
-  } catch {
+  } else {
     res.status(400).send({
       error: "WRONG DATA FORMAT",
     });

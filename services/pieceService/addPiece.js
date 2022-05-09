@@ -11,7 +11,12 @@ const addPiece = async (req, res, role) => {
     const _piece = new Piece(JSON.parse(req.body.piece));
 
     // VALIDATE INPUT
-    if (_piece.libele && _piece.description) {
+    if (
+      _piece.libele &&
+      _piece.description &&
+      _piece.periode &&
+      _piece.periode !== ""
+    ) {
       if (req.files) {
         saveImg(req, _piece, "./piece_images/", "front_image", null);
 

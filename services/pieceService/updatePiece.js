@@ -1,8 +1,9 @@
+const Periode = require("../../models/periodes.js");
 const Piece = require("../../models/pieces.js");
 const saveImg = require("../saveImage");
 
 const updatePiece = async (req, res) => {
-  try {
+  if (req.body.piece) {
     const _id = req.params.id;
     const _piece = new Piece(JSON.parse(req.body.piece));
     const old_piece = await Piece.findById(_id);
@@ -51,9 +52,9 @@ const updatePiece = async (req, res) => {
           res.status(500).send({ error: "Server side error" });
         });
     } else {
-      res.send({ error: "PIECE NOT FOUND" });
+      res.status(404).send({ error: "PIECE NOT FOUND" });
     }
-  } catch {
+  } else {
     res.status(400).send({
       error: "WRONG DATA FORMAT",
     });

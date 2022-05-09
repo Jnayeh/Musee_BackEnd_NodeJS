@@ -11,7 +11,12 @@ const addBillet = async (req, res, role) => {
     const _billet = new Billet(JSON.parse(req.body.billet));
 
     // VALIDATE INPUT
-    if (_billet.libele && _billet.description) {
+    if (
+      _billet.libele &&
+      _billet.description &&
+      _billet.periode &&
+      _billet.periode !== ""
+    ) {
       if (req.files) {
         saveImg(req, _billet, "./billet_images/", "front_image", null);
 

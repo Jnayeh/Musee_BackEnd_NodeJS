@@ -9,7 +9,6 @@ const billetSchema = new Schema({
   description: {
     type: String,
     required: true,
-    unique: true,
   },
   front_image: {
     type: String,
@@ -24,11 +23,6 @@ const billetSchema = new Schema({
     required: true,
     default: false,
   },
-  available: {
-    type: Boolean,
-    required: true,
-    default: true,
-  },
   stock: {
     type: Number,
     required: false,
@@ -42,6 +36,7 @@ const billetSchema = new Schema({
   periode: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Periode",
+    required: true,
   },
 });
 

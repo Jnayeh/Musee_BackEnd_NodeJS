@@ -19,7 +19,7 @@ const updatePeriode = async (req, res) => {
         res.status(500).send({ error: "Server side error" });
       });
   } else {
-    res.send({ error: "Periode NOT FOUND" });
+    res.status(404).send({ error: "Periode NOT FOUND" });
   }
 };
 module.exports = updatePeriode;

@@ -28,6 +28,11 @@ const userSchema = new Schema({
     type: String,
     required: false,
   },
+  active: {
+    type: Boolean,
+    default: true,
+    required: false,
+  },
   role: {
     type: String,
     required: true,

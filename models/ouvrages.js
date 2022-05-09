@@ -2,23 +2,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ouvrageSchema = new Schema({
-  titre: {
+  libele: {
     type: String,
     required: true,
   },
   description: {
     type: String,
     required: true,
-    unique: true,
   },
-  image: {
+  front_image: {
     type: String,
     required: false,
-  },
-  available: {
-    type: Boolean,
-    required: true,
-    default: true,
   },
   stock: {
     type: Number,
