@@ -7,8 +7,9 @@ files
 logos
 admin_photos
 user_photos
-piece_photos
+piece_images
 billet_images
+ouvrage_images
 
 # Local development
 *.env
