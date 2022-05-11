@@ -28,6 +28,11 @@ const billetSchema = new Schema({
     required: false,
     default: null,
   },
+  prix: {
+    type: Number,
+    required: false,
+    default: null,
+  },
   date_creation: {
     type: Date,
     default: Date.now,
