@@ -12,7 +12,6 @@ const verifyAdminToken = (req, res, next) => {
   } else {
     try {
       const decoded = jwt.verify(token, config.TOKEN_KEY);
-      req.user = decoded;
       if (decoded.role !== "administrateur") {
         return res.status(401).send({ error: "Invalid Administrateur Token" });
       }
