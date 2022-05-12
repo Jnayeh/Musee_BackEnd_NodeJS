@@ -26,7 +26,11 @@ const update = async (req, res, role, photo_folder) => {
       if (req.files) {
         saveImg(req, _user, photo_folder, "photo", old_user.photo);
       }
-      if (_user.mot_de_passe != "" && user_role == "administrateur") {
+      if (
+        _user.mot_de_passe &&
+        _user.mot_de_passe != "" &&
+        user_role == "administrateur"
+      ) {
         _user.mot_de_passe = await bcrypt.hash(_user.mot_de_passe, 10);
       } else {
         _user.mot_de_passe = old_user.mot_de_passe;
