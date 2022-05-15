@@ -14,16 +14,19 @@ const login = async (req, res, role) => {
     // VALIDATE USER
     const _user = await User.findOne({ email, role }).select("+mot_de_passe");
 
+    // La famma user
+    // Ta3mel comparaison bin el mot de pase elli crypted welli ena 7attou
     if (_user && (await bcrypt.compare(mot_de_passe, _user.mot_de_passe))) {
       let token = createToken(_user);
       // RETURN TOKEN
-      res.cookie("token", token, {
+      /* res.cookie("token", token, {
         // expires works the same as the maxAge
         expires: new Date("01 12 2023"),
         secure: true,
         httpOnly: true,
         sameSite: "lax",
-      });
+      }); */
+
       res.json({ token });
     } else {
       res.status(400).send({

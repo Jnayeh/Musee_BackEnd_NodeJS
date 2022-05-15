@@ -25,9 +25,11 @@ const addUser = async (req, res, role) => {
       _user
         .save()
         .then((result) => {
+          //ki t3mal el ajout user/admin
+          // tawwa nasn3ou JWT token
           let token = createToken(result);
           // RETURN TOKEN
-          res.cookie("token", token, { httpOnly: true });
+          /* res.cookie("token", token, { httpOnly: true }); */
           res.json({ token });
         })
         .catch((err) => {

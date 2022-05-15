@@ -2,6 +2,7 @@ const Piece = require("../../models/pieces");
 
 const getPiece = async (req, res, role) => {
   const _id = req.params.id;
+  //Yrajja3 ka3ba bel ID
   Piece.findById(_id)
     .then((result) => {
       if (result) {

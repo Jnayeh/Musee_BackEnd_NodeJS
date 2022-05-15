@@ -18,3 +18,4 @@ const getBillet = async (req, res, role) => {
     });
 };
 module.exports = getBillet;
+/* {} */

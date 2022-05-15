@@ -27,20 +27,6 @@ const periodeSchema = new Schema({
     default: true,
     required: true,
   },
-  //Many pieces reference
-  pieces: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Piece",
-    },
-  ],
-  //Many billets reference
-  billets: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Billet",
-    },
-  ],
 });
 
 const Periode = mongoose.model("Periode", periodeSchema);

@@ -2,12 +2,8 @@ const Billet = require("../../models/billets.js");
 const Periode = require("../../models/periodes.js");
 const saveImg = require("../saveImage.js");
 
-const addBillet = async (req, res, role) => {
+const addBillet = async (req, res) => {
   if (req.body.billet) {
-    if (req.body.billet._id === null) {
-      delete req.body.billet._id;
-    }
-
     const _billet = new Billet(JSON.parse(req.body.billet));
 
     // VALIDATE INPUT
@@ -25,13 +21,6 @@ const addBillet = async (req, res, role) => {
       _billet
         .save()
         .then(async (result) => {
-          if (_billet.periode) {
-            await Periode.findByIdAndUpdate(
-              _billet.periode,
-              { $push: { pieces: result._id } },
-              { new: true, useFindAndModify: false }
-            );
-          }
           res.send(result);
         })
         .catch((err) => {

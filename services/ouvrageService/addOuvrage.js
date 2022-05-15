@@ -3,14 +3,10 @@ const saveImg = require("../saveImage.js");
 
 const addOuvrage = async (req, res, role) => {
   if (req.body.ouvrage) {
-    if (req.body.ouvrage._id === null) {
-      delete req.body.ouvrage._id;
-    }
-
     const _ouvrage = new Ouvrage(JSON.parse(req.body.ouvrage));
 
     // VALIDATE INPUT
-    if (_ouvrage.libele && _ouvrage.description) {
+    if (_ouvrage.libele && _ouvrage.description && _ouvrage.prix) {
       if (req.files) {
         saveImg(req, _ouvrage, "./ouvrage_images/", "front_image", null);
       }

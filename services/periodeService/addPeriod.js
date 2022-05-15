@@ -1,10 +1,6 @@
 const Periode = require("../../models/periodes");
 
 const addPeriode = async (req, res, role) => {
-  if (req.body._id === null) {
-    delete req.body._id;
-  }
-
   const _period = new Periode(req.body);
 
   // VALIDATE INPUT

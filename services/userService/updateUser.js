@@ -11,13 +11,15 @@ const update = async (req, res, role, photo_folder) => {
   const config = process.env;
   // DECODE TOKEN
   const decoded = jwt.verify(token, config.TOKEN_KEY);
-  // GET USER ROLE
+  // GET USER ROLE yelzem ykoun admin
   const user_role = decoded.role;
+
+  //Yelzem form data
   if (req.body.user) {
     let _id = req.params.id;
     let _user = new User(JSON.parse(req.body.user));
     let old_user = await User.findOne({ _id, role }).select("+mot_de_passe");
-
+    //La fama user 9dim yod5el
     if (old_user) {
       _user._id = _id;
 

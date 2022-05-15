@@ -33,18 +33,6 @@ const updateBillet = async (req, res) => {
         new: true,
       })
         .then(async (result) => {
-          if (old_billet.periode != _billet.periode) {
-            await Periode.findByIdAndUpdate(
-              old_billet.periode,
-              { $pull: { pieces: _billet._id } },
-              { multi: true }
-            );
-            await Periode.findByIdAndUpdate(
-              result.periode,
-              { $push: { pieces: result._id } },
-              { new: true, useFindAndModify: false }
-            );
-          }
           res.json(result);
         })
         .catch((err) => {

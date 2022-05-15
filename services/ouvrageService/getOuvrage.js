@@ -1,6 +1,6 @@
 const Ouvrage = require("../../models/ouvrages");
 
-const getOuvrage = async (req, res, role) => {
+const getOuvrage = async (req, res) => {
   const _id = req.params.id;
   Ouvrage.findById(_id)
     .then((result) => {
