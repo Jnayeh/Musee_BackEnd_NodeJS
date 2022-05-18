@@ -13,8 +13,9 @@ const saveImg = (req, _obj, photo_folder, image, old_img) => {
     }
 
     //Use the mv() method to place the file in upload directory (i.e. "uploads")
-    img.mv(photo_folder + date + " - " + img.name);
-    _obj[image] = date + " - " + img.name;
+    img.name = img.name.replace(" ", "_");
+    img.mv(photo_folder + date + "_" + img.name);
+    _obj[image] = date + "_" + img.name;
   }
   return _obj;
 };
