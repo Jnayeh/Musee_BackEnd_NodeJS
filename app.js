@@ -16,6 +16,7 @@ const PieceRoutes = require("./routes/PieceRoutes");
 const PeriodeRoutes = require("./routes/PeriodeRoutes");
 const BilletRoutes = require("./routes/BilletRoutes");
 const OuvrageRoutes = require("./routes/OuvrageRoutes");
+const CommandRoutes = require("./routes/CommandRoutes");
 
 //Express App
 const app = express();
@@ -69,6 +70,7 @@ app.use(PieceRoutes);
 app.use(BilletRoutes);
 app.use(PeriodeRoutes);
 app.use(OuvrageRoutes);
+app.use(CommandRoutes);
 
 // // //    ERRORS SHOULD ALWAYS BE AFTER EVERYTHING
 app.use((req, res) => {
