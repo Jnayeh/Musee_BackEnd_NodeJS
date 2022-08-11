@@ -1,6 +1,11 @@
 const User = require("../../models/users.js");
 const bcrypt = require("bcryptjs");
 const createToken = require("../createToken");
+// CONFIG
+const config = require("../../config")[process.env.NODE_ENV || "developement"];
+
+//Logging
+const log = config.log();
 
 const addUser = async (req, res, role) => {
   const _user = new User(req.body);
@@ -33,7 +38,7 @@ const addUser = async (req, res, role) => {
           res.json({ token });
         })
         .catch((err) => {
-          console.log(err);
+          log.error(err);
           res.status(500).send({
             error: "Server side error",
           });
